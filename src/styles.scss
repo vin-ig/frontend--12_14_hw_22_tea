@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+/* Цвет текста при наведении на меню */
+.nav-link {
+    --bs-nav-link-hover-color: #000000;
+}
+
+/* Hover */
+.btn:hover,
+.hvr-rectangle-out {
+    background: var(--bs-btn-bg);
+}
+
+.hvr-rectangle-out:before {
+    background: var(--bs-btn-hover-bg)
+}
+
+
+/* Стили для баннеров (hard level) */
+.hard-level .btn {
+    width: 170px;
+}
+
+.hard-banner-1 {
+    background-image: url("assets/images/banner_2_1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hard-banner-3 {
+    background-image: url("assets/images/banner_2_3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Аккордеон */
+.accordion-button::after {
+    filter: invert(1) brightness(2);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+
+/* Карусель */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: white !important;
+    border-radius: 50%;
+    border: 1px solid #007bff;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+    margin: 0 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none;
+    width: 15px;
+    height: 15px;
+    border: solid #007bff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.carousel-control-prev-icon {
+    transform: rotate(135deg);
+    margin-left: 6px;
+}
+
+.carousel-control-next-icon {
+    transform: rotate(-45deg);
+    margin-right: 6px;
+}
