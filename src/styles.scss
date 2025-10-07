@@ -80,3 +80,7 @@
     transform: rotate(-45deg);
     margin-right: 6px;
 }
+
+.nav-link.active {
+    border-bottom: 2px solid gray;
+}
