@@ -12,6 +12,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { ProductCardComponent } from './components/common/product-card/product-card.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { PopupComponent } from './components/common/popup/popup.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import {FormsModule} from "@angular/forms";
         HeaderComponent,
         FooterComponent,
         ProductCardComponent,
+        PopupComponent,
     ],
     imports: [
         BrowserModule,
