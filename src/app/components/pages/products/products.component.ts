@@ -3,6 +3,7 @@ import {ProductType} from "../../../types/product.type";
 import {ProductService} from "../../../services/product.service";
 import {Router} from "@angular/router";
 import {tap} from "rxjs";
+import {LoaderService} from "../../../services/loader.service";
 
 @Component({
     selector: 'products-component',
@@ -12,21 +13,20 @@ import {tap} from "rxjs";
 })
 export class ProductsComponent implements OnInit {
     public products: ProductType[] = []
-    loading: boolean = true
 
     constructor(
         private productService: ProductService,
         private router: Router,
+        private loaderService: LoaderService,
         ) {
     }
 
     ngOnInit(): void {
-        this.loading = true
-        return
+        this.loaderService.show()
         this.productService.getProducts()
             .pipe(
                 tap(() => {
-                    this.loading = false
+                    this.loaderService.hide()
                 })
             )
             .subscribe({

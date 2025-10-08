@@ -13,6 +13,7 @@ import { ProductCardComponent } from './components/common/product-card/product-c
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { PopupComponent } from './components/common/popup/popup.component';
+import { LoaderComponent } from './components/common/loader/loader.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { PopupComponent } from './components/common/popup/popup.component';
         FooterComponent,
         ProductCardComponent,
         PopupComponent,
+        LoaderComponent,
     ],
     imports: [
         BrowserModule,
