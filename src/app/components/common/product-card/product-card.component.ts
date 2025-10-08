@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProductType} from "../../../types/product.type";
 
 @Component({
-  selector: 'product-card-component',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+    selector: 'product-card-component',
+    templateUrl: './product-card.component.html',
+    styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
 
-  constructor() { }
+    private _product: ProductType
 
-  ngOnInit(): void {
-  }
+    @Input()
+    get product(): ProductType {return this._product}
+    set product(data: ProductType) {this._product = data}
+
+    constructor() {
+        this._product = {
+            id: 0,
+            image: '',
+            title: '',
+            description: '',
+            price: 0,
+        }
+    }
+
+    ngOnInit(): void {
+    }
 
 }
