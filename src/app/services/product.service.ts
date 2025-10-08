@@ -5,8 +5,6 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class ProductService {
-    private products: ProductType[] = []
-
     constructor(
         private http: HttpClient,
     ) {
@@ -19,7 +17,7 @@ export class ProductService {
     getProduct(id: number): Observable<ProductType> {
         let params = new HttpParams()
         params = params.set('id', id)
-        return this.http.get<ProductType>(`https://testologia.ru/tea}`,{
+        return this.http.get<ProductType>(`https://testologia.ru/tea`,{
             params: params
         })
     }

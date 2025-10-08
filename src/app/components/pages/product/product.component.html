@@ -1,1 +1,15 @@
-<p>product works!</p>
+<div class="col d-flex justify-content-center">
+    <div class="card w-75 d-flex align-items-center">
+        <div class="card-image d-block" style="max-width: 400px;">
+            <img class="card-img-top w-100" [src]="product.image" alt="Tea">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p>{{product.description}}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center w-100">
+            <h6 class="card-title">{{product.price}} руб.</h6>
+            <a routerLink="/order" [queryParams]="{product: product.title}" class="btn btn-success w-50 hvr-rectangle-out">Купить</a>
+        </div>
+    </div>
+</div>
