@@ -11,14 +11,20 @@ export class ProductService {
     ) {
     }
 
-    getProducts(): Observable<ProductType[]> {
-        return this.http.get<ProductType[]>('https://testologia.ru/tea')
+    getProducts(query?: string): Observable<ProductType[]> {
+        let params = new HttpParams()
+        if (query) {
+            params = params.set('search', query)
+        }
+        return this.http.get<ProductType[]>('https://testologia.ru/tea', {
+            params: params
+        })
     }
 
     getProduct(id: number): Observable<ProductType> {
         let params = new HttpParams()
         params = params.set('id', id)
-        return this.http.get<ProductType>(`https://testologia.ru/tea`,{
+        return this.http.get<ProductType>(`https://testologia.ru/tea`, {
             params: params
         })
     }
