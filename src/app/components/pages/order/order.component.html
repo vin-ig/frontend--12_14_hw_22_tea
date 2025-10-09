@@ -1,39 +1,122 @@
-<main class="container-lg pt-4">
-    <section class="order pt-4 d-flex flex-column align-items-center wow animate__flipInX">
-        <h2 class="mb-5">Сделать заказ</h2>
-        <form class="mt-2" action="#">
-            <div class="row row-cols-1 row-cols-md-3 mb-3">
-                <div class="col">
-                    <label for="nameInput" class="form-label">Имя</label>
-                    <input type="text" class="form-control" id="nameInput">
-                </div>
-                <div class="col">
-                    <label for="lastnameInput" class="form-label">Фамилия</label>
-                    <input type="text" class="form-control" id="lastnameInput">
-                </div>
-                <div class="col">
-                    <label for="phoneInput" class="form-label">Телефон</label>
-                    <input type="text" class="form-control" id="phoneInput">
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-sm-2 mb-3">
-                <div class="col">
-                    <label for="countryInput" class="form-label">Страна</label>
-                    <input type="text" class="form-control" id="countryInput">
-                </div>
-                <div class="col">
-                    <label for="postCodeInput" class="form-label">Индекс</label>
-                    <input type="text" class="form-control" id="postCodeInput">
-                </div>
-            </div>
+<section class="container-lg pt-4">
+    <div class="order pt-4" *ngIf="showForm">
+        <h2 class="mb-5 text-center">Сделать заказ</h2>
+        <form class="mt-2 needs-validation" novalidate [formGroup]="orderForm">
             <div class="row mb-3">
                 <div class="col">
-                    <label for="addressInput" class="form-label">Адрес</label>
-                    <input type="text" class="form-control" id="addressInput">
+                    <label for="productInput" class="form-label">Выбранный товар</label>
+                    <input type="text" class="form-control" id="productInput" formControlName="product"
+                           [attr.disabled]="true">
                 </div>
             </div>
-            <button type="button" class="btn btn-primary mt-2 hvr-rectangle-out" style="width: 156px;">Отправить
-            </button>
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3">
+                <div class="col">
+                    <label for="firstName" class="form-label">Имя</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                        <div class="w-100" *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+                            <div class="invalid-feedback" *ngIf="firstName?.errors?.['required']">
+                                Введите имя
+                            </div>
+                            <div class="invalid-feedback" *ngIf="firstName?.errors?.['pattern']">
+                                Имя может содержать только буквы
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="lastName" class="form-label">Фамилия</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                        <div class="w-100" *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                            <div class="invalid-feedback" *ngIf="lastName?.errors?.['required']">
+                                Введите фамилию
+                            </div>
+                            <div class="invalid-feedback" *ngIf="lastName?.errors?.['pattern']">
+                                Фамилия может содержать только буквы
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="phone" formControlName="phone">
+                        <div class="w-100" *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+                            <div class="invalid-feedback" *ngIf="phone?.errors?.['required']">
+                                Введите телефон
+                            </div>
+                            <div class="invalid-feedback" *ngIf="phone?.errors?.['pattern']">
+                                Телефон должен содержать только цифры и знак «+»
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 mb-3">
+                <div class="col">
+                    <label for="country" class="form-label">Старна</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="country" formControlName="country">
+                        <div class="invalid-feedback" *ngIf="country?.invalid && (country?.dirty || country?.touched) && country?.errors?.['required']">
+                            Введите страну
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="zip" class="form-label">Индекс</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="zip" formControlName="zip">
+                        <div class="invalid-feedback" *ngIf="zip?.invalid && (zip?.dirty || zip?.touched) && zip?.errors?.['required']">
+                            Введите индекс
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="address" class="form-label">Адрес</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="address" formControlName="address">
+                        <div class="w-100" *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+                            <div class="invalid-feedback" *ngIf="address?.errors?.['required']">
+                                Введите адрес
+                            </div>
+                            <div class="invalid-feedback" *ngIf="address?.errors?.['pattern']">
+                                В поле «Адрес» можно вводить: буквы, цифры, пробелы, дефис и слэш
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="commentInput" class="form-label">Комментарий к заказу</label>
+                    <textarea class="form-control" id="commentInput"></textarea>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center mt-2">
+                <button
+                    type="button" class="btn btn-primary hvr-rectangle-out" style="width: 156px;"
+                    (click)="createOrder()"
+                    [disabled]="orderForm.invalid"
+                >Отправить
+                </button>
+                <div class="text-danger ms-3" *ngIf="unsuccessfulRequest">
+                    Произошла ошибка. Попробуйте еще раз!
+                </div>
+            </div>
         </form>
-    </section>
-</main>
+    </div>
+    <div class="fw-bold fs-1 text-center my-5" *ngIf="!showForm">
+        Спасибо за заказ!
+    </div>
+</section>
