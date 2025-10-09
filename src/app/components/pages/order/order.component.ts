@@ -72,6 +72,9 @@ export class OrderComponent implements OnInit {
             } else {
                 console.log(response.message)
                 this.unsuccessfulRequest = true
+                setTimeout(() => {
+                    this.unsuccessfulRequest = false
+                }, 3000)
             }
         }))
     }
