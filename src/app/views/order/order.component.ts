@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../shared/services/product.service";
 import {FormBuilder, Validators} from "@angular/forms";
-import {LoaderService} from "../../../services/loader.service";
+import {LoaderService} from "../../shared/services/loader.service";
 
 @Component({
     selector: 'order-component',

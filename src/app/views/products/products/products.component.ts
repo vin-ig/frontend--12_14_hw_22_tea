@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductType} from "../../../types/product.type";
-import {ProductService} from "../../../services/product.service";
+import {ProductType} from "../../../../types/product.type";
+import {ProductService} from "../../../shared/services/product.service";
 import {Router} from "@angular/router";
 import {tap} from "rxjs";
-import {LoaderService} from "../../../services/loader.service";
-import {SearchService} from "../../../services/search.service";
+import {LoaderService} from "../../../shared/services/loader.service";
+import {SearchService} from "../../../shared/services/search.service";
 
 @Component({
     selector: 'products-component',
