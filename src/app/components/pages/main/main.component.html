@@ -1,17 +1,21 @@
 <main class="container-lg pt-4 modal-open">
     <section id="main-task-section" class="content mb-4 wow animate__fadeInRight">
-        <div id="carousel-autoplay" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
                     <img src="assets/images/banner_1_1.png" class="d-block w-100" alt="Banner 1">
                 </div>
-                <div class="carousel-item">
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
                     <img src="assets/images/banner_1_2.png" class="d-block w-100" alt="Banner 2">
                 </div>
-                <div class="carousel-item">
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
                     <img src="assets/images/banner_1_3.png" class="d-block w-100" alt="Banner 3">
                 </div>
-            </div>
+            </ng-template>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel-autoplay"
                     data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -22,85 +26,21 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+        </ngb-carousel>
     </section>
 
     <section class="faq pt-4 px-3 mb-5 w-75 mx-auto">
         <h2 class="mb-5 text-center">Ответы на часто задаваемые вопросы</h2>
-        <div class="accordion accordion-flush" id="accordionFAQ">
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button bg-primary text-white fw-bold rounded-3 p-4 mt-3" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapse-1"
-                            aria-expanded="true" aria-controls="collapse-1">
-                        Собираете ли вы подарочные боксы?
-                    </button>
-                </h2>
-                <div id="collapse-1" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
-                    <div class="accordion-body">
-                        Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button bg-primary text-white fw-bold rounded-3 p-4 mt-3 collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                        Сколько у вас разновидностей чая?
-                    </button>
-                </h2>
-                <div id="collapse-2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                    <div class="accordion-body">
-                        У нас более 48 различных сортов и видов чая!
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button bg-primary text-white fw-bold rounded-3 p-4 mt-3 collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                        В какой срок осуществляется доставка?
-                    </button>
-                </h2>
-                <div id="collapse-3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                    <div class="accordion-body">
-                        Сроки доставки зависят от выбранного способа и вашего местоположения.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button bg-primary text-white fw-bold rounded-3 p-4 mt-3 collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                        У вас обновляется ассортимент?
-                    </button>
-                </h2>
-                <div id="collapse-4" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                    <div class="accordion-body">
-                        Конечно! Наиболее популярные виды чая в продаже есть всегда, но мы постоянно ищем что-то новое и
-                        хотим приятно удивить наших постоянных клиентов!
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button bg-primary text-white fw-bold rounded-3 p-4 mt-3 collapsed"
-                            type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-                        Какого объема у вас пачки чая?
-                    </button>
-                </h2>
-                <div id="collapse-5" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                    <div class="accordion-body">
-                        Вы можете выбрать наиболее подходящие вам варианты фасовки чая из следующего ряда: <strong>100
-                        гр, 150 гр, 200 гр, 500 гр.</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ngb-accordion [closeOthers]="true" activeIds="acc-item-0">
+            <ngb-panel *ngFor="let faqItem of faqList; let i=index" id="acc-item-{{i}}" [cardClass]="'border-0'">
+                <ng-template ngbPanelTitle>
+                    {{faqItem.question}}
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    {{faqItem.answer}}
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
     </section>
 
     <popup-component></popup-component>

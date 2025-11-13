@@ -18,7 +18,7 @@ export class PopupComponent implements OnInit, OnDestroy {
     ) {
         this.observable = new Observable((observer) => {
             const timeout = setTimeout(() => {
-                observer.next()
+                // observer.next()
             }, 10000)
 
         return {

@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PopupComponent } from './components/common/popup/popup.component';
 import { LoaderComponent } from './components/common/loader/loader.component';
+import {NgbAccordionModule, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,8 @@ import { LoaderComponent } from './components/common/loader/loader.component';
         FormsModule,
         HttpClientModule,
         ReactiveFormsModule,
+        NgbAccordionModule,
+        NgbCarouselModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
