@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-gp": "ng build --output-path docs --base-href /frontend--12_14_hw_22_tea/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
