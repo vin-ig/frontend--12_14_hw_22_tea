@@ -2,46 +2,13 @@
 @import 'bootstrap/scss/bootstrap';
 
 
-/* Цвет текста при наведении на меню */
-.nav-link {
-    --bs-nav-link-hover-color: #000000;
-}
-
-/* Hover */
-.btn:hover,
-.hvr-rectangle-out {
-    background: var(--bs-btn-bg);
-}
-
-.hvr-rectangle-out:before {
-    background: var(--bs-btn-hover-bg)
-}
-
-
-/* Стили для баннеров (hard level) */
-.hard-level .btn {
-    width: 170px;
-}
-
-.hard-banner-1 {
-    background-image: url("assets/images/banner_2_1.png");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.hard-banner-3 {
-    background-image: url("assets/images/banner_2_3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 /* Аккордеон */
 .accordion-button:not(.collapsed),
 .accordion-button {
-    background: rgb(var(--bs-primary-rgb));
-    border-radius: 0.5rem;
-    margin-top: 16px;
-    color: white;
+    background: var(--bs-primary);
+    border-radius: var(--bs-border-radius-lg);
+    margin-top: $spacer;
+    color: var(--bs-white);
     font-weight: bold;
 }
 
@@ -94,6 +61,8 @@
     margin-right: 6px;
 }
 
+
+/* Меню */
 .nav-link.active {
     border-bottom: 2px solid gray;
 }
